@@ -1,0 +1,7 @@
+export const API_KEY = 'AIzaSyDXCIzk_htTTEE3sCKZY_2GY_9MLy96Nrg'
+export const AUTH_DOMAIN = 'react-storage-d6cbd.firebaseapp.com'
+export const PROJECT_ID = 'react-storage-d6cbd'
+export const STORAGE_BUCKET = 'react-storage-d6cbd.appspot.com'
+export const MESSAGING_SENDER_ID = '838501813057'
+export const APP_ID = '1:838501813057:web:7bb894b2ade1a9a9dcafc0'
+export const MEASUREMENT_ID = 'G-XHT3JVPQ2K'
