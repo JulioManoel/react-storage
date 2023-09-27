@@ -1,17 +1,30 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Alert, Image, StyleSheet, Text, View } from "react-native";
 import TextButton from "../components/TextButton";
 import InputIcon from "../components/InputIcon";
 import SocialButton from "../components/SocialButton";
 import ButtonSubmit from "../components/ButtonSubmit";
+import AuthController from "../controller/authController";
 
-export default LoginScree = () => {
-  const github = require('../assets/github.png');
-  const facebook = require('../assets/facebook.png');
-  const google = require('../assets/google.png');
+export default LoginScree = ({ navigation }) => {
+  const handleClickSingUp = () => {
+    navigation.navigate('Register')
+  }
+
+  const onSubmit = () => {
+    navigation.navigate('HomeTabs')
+  }
+
+  const a = () => {
+    AuthController().google()
+  }
+
+  const github = require('../assets/images/github.png');
+  const facebook = require('../assets/images/facebook.png');
+  const google = require('../assets/images/google.png');
 
   return (
     <View style={styles.container}>
-      <Image source={require("../assets/login.png")} />
+      <Image source={require("../assets/images/login.png")} />
       <Text style={styles.titulo}>Login</Text>
 
       <View style={styles.form}>
@@ -19,17 +32,17 @@ export default LoginScree = () => {
         <InputIcon placeholder="Password" />
       </View>
 
-      <ButtonSubmit />
+      <ButtonSubmit title="Login" onPress={onSubmit} />
 
-      <Text>Login with...</Text>
+      <Text style={styles.loginWith}>Or, login with...</Text>
 
       <View style={styles.gridSocial}>
         <SocialButton source={facebook} />
-        <SocialButton source={google} />
+        <SocialButton source={google} onPress={a} />
         <SocialButton source={github} />
       </View>
 
-      <TextButton />
+      <TextButton onPress={handleClickSingUp} text="Don't have an account?" button="Sing Up" />
     </View>
   );
 };
@@ -55,11 +68,15 @@ const styles = StyleSheet.create({
     width: '80%'
   },
 
+  loginWith: {
+    marginTop: 10,
+    color: '#585858'
+  },
+
   gridSocial: {
     marginTop: 20,
-    marginBottom: 20,
-    width: '100%',
+    width: '80%',
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
   },
 });

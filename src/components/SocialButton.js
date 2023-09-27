@@ -1,9 +1,11 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native'
 
 export default SocialButton = (props) => {
   return (
     <View style={styles.socialButton}>
-      <Image style={styles.socialImage} source={props.source} />
+      <TouchableOpacity style={styles.socialButton} onPress={props.onPress}>
+        <Image style={styles.socialImage} source={props.source} onPress={props.onPress} />
+      </TouchableOpacity>
     </View>
   )
 }
@@ -14,9 +16,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: 1,
     borderColor: '#9B9B9B',
+    borderRadius: 10,
     width: 100,
     height: 60,
-    borderRadius: 10
   },
 
   socialImage: {
