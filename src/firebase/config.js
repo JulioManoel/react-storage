@@ -1,6 +1,8 @@
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getAuth } from "firebase/auth"
+import { initializeApp } from 'firebase/app'
+import { initializeAuth, getReactNativePersistence } from 'firebase/auth'
+import { getFirestore } from 'firebase/firestore'
+import { getStorage } from 'firebase/storage'
+import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage'
 import * as env from '../../env.js'
 
 const firebaseConfig = {
@@ -11,10 +13,15 @@ const firebaseConfig = {
   messagingSenderId: env.MESSAGING_SENDER_ID,
   appId: env.APP_ID,
   measurementId: env.MEASUREMENT_ID
-};
+}
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const auth = getAuth(app)
+const app = initializeApp(firebaseConfig)
 
-export { analytics, auth }
+const auth = initializeAuth(app, {
+  persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+})
+
+const db = getFirestore(app)
+const storage = getStorage(app)
+
+export { auth, db, storage }

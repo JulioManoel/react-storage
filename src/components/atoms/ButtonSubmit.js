@@ -1,10 +1,16 @@
-import { Button, StyleSheet, TouchableOpacity, Text, View } from "react-native"
+import { StyleSheet, TouchableOpacity, Text, View, ActivityIndicator } from 'react-native'
 
 export default ButtonSubmit = (props) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.submit} onPress={props.onPress}>
-        <Text style={styles.login}>{props.title}</Text>
+        {
+          props.loading ? (
+            <ActivityIndicator size="large" color="#ffffff" />
+          ) : (
+            <Text style={styles.login}>{props.title}</Text>
+          )
+        }
       </TouchableOpacity>
     </View>
   )
