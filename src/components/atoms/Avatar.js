@@ -7,13 +7,15 @@ export default Avatar = ({ url, character, borderRadius = 100, size = 50 }) => {
     borderRadius: borderRadius,
   }
 
+  const avatar = { ...styles.avatar, fontSize: (size * 18) / 50}
+
   return (
     <View>
       {url ? (
         <Image src={url} style={profilePicture} />
       ) : (
         <View style={[profilePicture, styles.avatarView]}>
-          <Text style={styles.avatar}>{character}</Text>
+          <Text style={avatar}>{character}</Text>
         </View>
       )}
     </View>
@@ -28,7 +30,6 @@ const styles = StyleSheet.create({
 
   avatar: {
     fontWeight: 'bold',
-    fontSize: 18,
     color: '#F5F5F5',
     textAlign: 'center',
   },

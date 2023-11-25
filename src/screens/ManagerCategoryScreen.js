@@ -75,7 +75,7 @@ export default ManagerCategoryScreen = () => {
         renderItem={renderItem}
       />
 
-      <FloatButton />
+      <FloatButton icon="plus" backgroundColor="#00C193" />
     </View>
   )
 }

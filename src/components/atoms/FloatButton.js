@@ -1,12 +1,18 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import Icon from '@expo/vector-icons/FontAwesome'
 
-export default FloatButton = () => {
+export default FloatButton = ({ icon, backgroundColor, loading = false, onPress = () => {} }) => {
+  const button = { ...styles.button, backgroundColor}
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
-        <View style={styles.button}>
-          <Icon name="plus" size={30} color="#fff" />
+      <TouchableOpacity disabled={loading} onPress={onPress}>
+        <View style={button}>
+          { loading ? (
+            <ActivityIndicator size="large" color="#ffffff" />
+          ) : (
+            <Icon name={icon} size={30} color="#ffffff" />
+          )}
         </View>
       </TouchableOpacity>
     </View>
@@ -34,6 +40,5 @@ const styles = StyleSheet.create({
     shadowOffset: {
       height: 10
     },
-    backgroundColor: '#0099FF'
   }
 })

@@ -1,0 +1,24 @@
+Users:
+  - categories (array of ids)
+  - products (array of ids)
+  - sales (array of ids)
+
+Categories:
+  - name (string)
+  - description (string)
+  - img (string)
+  - isView (boolean)
+  - products (array of ids)
+
+Products:
+  - code (string)
+  - name (string)
+  - description (string)
+  - price (number)
+  - stock (number)
+  -  numSales (number)
+
+Sales:
+  - data (dateTime)
+  - price (number)
+  - products (array of ids)
