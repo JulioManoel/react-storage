@@ -1,11 +1,10 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TextInput, View } from 'react-native'
 import TextButton from '../components/atoms/TextButton'
 import InputIcon from '../components/atoms/InputIcon'
 import SocialButton from '../components/atoms/SocialButton'
 import ButtonSubmit from '../components/atoms/ButtonSubmit'
 import { useEffect, useState } from 'react'
 import { store } from '../store'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default LoginScree = ({ navigation }) => {
   const [email, setEmail] = useState('')
@@ -14,18 +13,6 @@ export default LoginScree = ({ navigation }) => {
   const [errors, setErrors] = useState({})
   const [isFormValid, setIsFormValid] = useState(false)
   const [touched, setTouched] = useState({ name: false, password: false })
-
-  useEffect(() => {
-    if (store.user.currentUser) return
-
-    AsyncStorage.getItem('auth').then(async auth => {
-      if (!auth) return
-
-      const payload = JSON.parse(auth)
-      await store.user.login(payload)
-      if (store.user.currentUser) navigation.navigate('HomeTabs')
-    })
-  })
 
   useEffect(() => {
     let errors = {}

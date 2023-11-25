@@ -21,5 +21,5 @@ export const userService = {
       if(error.code === 'auth/invalid-login-credentials') return Alert.alert('Error', 'Invalid Login', [{type: 'OK'}])
       return console.log(error)
     }
-  }
+  },
 }

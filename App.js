@@ -1,7 +1,10 @@
-import AppNavigation from './src/routes/AppNavigation';
+import { NavigationContainer } from '@react-navigation/native'
+import AppNavigation from './src/routes/AppNavigation'
 
 export default App = () => {
   return (
-    <AppNavigation />
+    <NavigationContainer>
+      <AppNavigation />
+    </NavigationContainer>
   )
 }
