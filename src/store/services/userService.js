@@ -14,6 +14,14 @@ export const userService = {
     }
   },
 
+  async get() {
+    try {
+      this.currentUser = await authController.get(this.currentUser)
+    } catch (error) {
+      return console.error(error)
+    }
+  },
+
   async login(payload) {
     try {
       this.currentUser = await authController.login(payload)
@@ -22,4 +30,8 @@ export const userService = {
       return console.log(error)
     }
   },
+
+  async autoLogin() {
+    this.currentUser = await authController.autoLogin()
+  }
 }

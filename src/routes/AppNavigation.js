@@ -14,12 +14,12 @@ export default AppNavigation = () => {
   const navigation = useNavigation()
 
   useEffect(() => {
-    onAuthStateChanged(auth, user => {
-      if(!user) return
-      
-      store.user.currentUser = user
-      navigation.navigate('HomeTabs')
-    })
+    const checkAuthState = async () => {
+      await store.user.autoLogin()
+      if(store.user.currentUser) navigation.navigate('HomeTabs')
+    }
+
+    checkAuthState()
   }, [])
 
   return (

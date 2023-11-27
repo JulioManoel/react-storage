@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, Text, View, ActivityIndicator } from 'rea
 export default ButtonSubmit = (props) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.submit} onPress={props.onPress}>
+      <TouchableOpacity style={styles.submit} disabled={props.loading} onPress={props.onPress}>
         {
           props.loading ? (
             <ActivityIndicator size="large" color="#ffffff" />

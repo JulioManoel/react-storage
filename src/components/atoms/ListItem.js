@@ -6,11 +6,11 @@ export default ListItem = ({ item }) => {
   const navigation = useNavigation()
 
   return (
-    <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Category')}>
-      <Avatar url={item.image} character={item.title[0]} borderRadius={10} size={60} />
+    <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Category', { item: item, isCreate: false })}>
+      <Avatar url={item.image} character={item.name[0]} borderRadius={10} size={60} />
 
       <View style={styles.texts}>
-        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.name}>{item.name}</Text>
         <Text style={styles.description}>{item.description}</Text>
       </View>
     </TouchableOpacity>
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
 
-  title: {
+  name: {
     fontWeight: 'bold',
     fontSize: 20,
   },

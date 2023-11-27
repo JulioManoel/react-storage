@@ -5,7 +5,8 @@ export default Search = ({ setList, data }) => {
   const [search, setSearch] = useState('')
 
   useEffect(() => {
-    setList(data.filter(item => item.title.toUpperCase().includes(search.toUpperCase())))
+    if(!data) return
+    setList(data.filter(item => item.name.toUpperCase().includes(search.toUpperCase())))
   }, [search])
 
   return (

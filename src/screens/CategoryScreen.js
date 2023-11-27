@@ -3,16 +3,24 @@ import Avatar from '../components/atoms/Avatar'
 import FloatButton from "../components/atoms/FloatButton"
 import { useState } from 'react'
 import { store } from '../store'
+import { useNavigation } from '@react-navigation/native'
 
-export default CategoryScreen = () => {
-  const [name, setName] = useState('')
-  const [description, setDescription] = useState('')
-  const [isView, setIsView] = useState(false)
+export default CategoryScreen = ({ route }) => {
+  const navigation = useNavigation()
+
+  const [name, setName] = useState(route.params.item ? route.params.item.name : '')
+  const [description, setDescription] = useState(route.params.item ? route.params.item.description : '')
+  const [isView, setIsView] = useState(route.params.item ? route.params.item.isView : false)
+  const [image, setImage] = useState(route.params.item ? route.params.item.image : '')
   const [loading, setLoading] = useState(false)
 
   const onSubmit = async () => {
+    if(!name || !description) return 
+    
     setLoading(true)
-
+    if (route.params.isCreate === true) await store.category.create({ name, description, isView, image }, store.user.currentUser)
+    else await store.category.update({ name, description, isView, image, id: route.params.item.id })
+    navigation.navigate('ManagerCategory')
     setLoading(false)
   }
 

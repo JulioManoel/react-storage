@@ -1,25 +1,35 @@
-import { Alert } from 'react-native'
-import AuthController from '../../controller/AuthController'
+import CategoryController from '../../controller/CategoryController'
 
-const category = new AuthController()
+const categoryController = new CategoryController()
 
-export const userService = {
-  currentUser: null,
+export const categoryService = {
+  categories: null,
 
-  async create(payload) {
+  async create(payload, currentUser) {
     try {
-      this.currentUser = await authController.create(payload)
+      await categoryController.create(payload, currentUser)
+      this.categories.push(payload)
     } catch (error) {
       return console.log(error)
     }
   },
 
-  async login(payload) {
+  async update(payload) {
     try {
-      this.currentUser = await authController.login(payload)
+      console.log(payload)
+      await categoryController.update(payload)
+      let category = this.categories.find(category => category.id === payload.id)
+      category = payload
     } catch (error) {
-      if(error.code === 'auth/invalid-login-credentials') return Alert.alert('Error', 'Invalid Login', [{type: 'OK'}])
       return console.log(error)
     }
   },
+
+  async get(currentUser) {
+    try {
+      this.categories = await categoryController.get(currentUser)
+    } catch (error) {
+      return console.log(error)
+    }
+  }
 }

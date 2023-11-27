@@ -1,14 +1,7 @@
-import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore'
+import { addDoc, collection, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore'
 import { db } from '../firebase/config'
-import { uploadBytes } from 'firebase/storage'
 
 export default class BaseController {
-  async upload(uid, file) {
-    const storageRef = ref(storage, `${uid}`)
-    const snapshot = await uploadBytes(storageRef, file)
-    return snapshot.metadata.fullPath
-  }
-
   async getDocRef(docRef) {
     const res = await getDoc(docRef)
     return res.data()
@@ -18,6 +11,14 @@ export default class BaseController {
     const docSnap = await getDoc(doc(db, document, collection))
     if (data === true) return docSnap.data()
     return docSnap
+  }
+
+  async addDocument(document, payload) {
+    try {
+      return await addDoc(collection(db, document), payload)
+    } catch (e) {
+      console.error("Erro adding document: ", e)
+    }
   }
 
   async setDocument(document, collection, payload) {

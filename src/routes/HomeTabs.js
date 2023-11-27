@@ -42,7 +42,7 @@ export default HomeTabs = () => {
       />
 
       <Tab.Screen
-        name="New"
+        name="Sell"
         component={ManagerScreen}
         options={{
           headerShown: false,
@@ -51,7 +51,7 @@ export default HomeTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Sell"
+        name="Users"
         component={HomeScreen}
         options={{
           headerShown: false,
