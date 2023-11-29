@@ -1,6 +1,6 @@
 import { Image, StyleSheet, Text, View } from "react-native"
 
-export default Avatar = ({ url, character, borderRadius = 100, size = 50 }) => {
+export default Avatar = ({ url = null, character, borderRadius = 100, size = 50 }) => {
   const profilePicture = {
     width: size, 
     height: size,

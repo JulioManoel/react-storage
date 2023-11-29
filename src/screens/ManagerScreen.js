@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View } from "react-native"
-import ManageCard from "../components/atoms/ManageCard"
-import { useNavigation } from "@react-navigation/native"
-import Title from "../components/atoms/Title"
+import { StyleSheet, View } from 'react-native'
+import ManageCard from '../components/atoms/ManageCard'
+import { useNavigation } from '@react-navigation/native'
+import Title from '../components/atoms/Title'
 
 export default ManagerScreen = () => {
   const navigation = useNavigation()

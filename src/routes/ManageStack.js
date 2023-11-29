@@ -1,7 +1,7 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ManagerScreen from "../screens/ManagerScreen";
-import ManagerCategoryScreen from "../screens/ManagerCategoryScreen";
-import CategoryScreen from "../screens/CategoryScreen";
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import ManagerScreen from '../screens/ManagerScreen'
+import ManagerCategoryScreen from '../screens/ManagerCategoryScreen'
+import CategoryScreen from '../screens/CategoryScreen'
 
 const Stack = createNativeStackNavigator()
 

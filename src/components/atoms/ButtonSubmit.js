@@ -4,8 +4,7 @@ export default ButtonSubmit = (props) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.submit} disabled={props.loading} onPress={props.onPress}>
-        {
-          props.loading ? (
+        { props.loading ? (
             <ActivityIndicator size="large" color="#ffffff" />
           ) : (
             <Text style={styles.login}>{props.title}</Text>

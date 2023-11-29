@@ -1,12 +1,10 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import LoginScree from "../screens/LoginScreen";
-import RegisterScreen from "../screens/RegisterScreen";
-import HomeTabs from "./HomeTabs";
-import { useEffect, useState } from "react";
-import { auth } from "../firebase/config";
-import { onAuthStateChanged } from "firebase/auth";
-import { store } from "../store";
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { useNavigation } from '@react-navigation/native'
+import LoginScree from '../screens/LoginScreen'
+import RegisterScreen from '../screens/RegisterScreen'
+import HomeTabs from './HomeTabs'
+import { useEffect } from 'react'
+import { store } from '../store'
 
 const Stack = createNativeStackNavigator()
 

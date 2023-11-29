@@ -1,7 +1,6 @@
 import { Image, StyleSheet, Text, TextInput, View } from 'react-native'
 import TextButton from '../components/atoms/TextButton'
 import InputIcon from '../components/atoms/InputIcon'
-import SocialButton from '../components/atoms/SocialButton'
 import ButtonSubmit from '../components/atoms/ButtonSubmit'
 import { useEffect, useState } from 'react'
 import { store } from '../store'
@@ -59,11 +58,11 @@ export default LoginScree = ({ navigation }) => {
 
       <Text style={styles.loginWith}>Or, login with...</Text>
 
-      <View style={styles.gridSocial}>
+      {/* <View style={styles.gridSocial}>
         <SocialButton source={facebook} />
         <SocialButton source={google} />
         <SocialButton source={github} />
-      </View>
+      </View> */}
 
       <TextButton onPress={() => navigation.navigate('Register')} text="Don't have an account?" button="Sing Up" />
     </View>
