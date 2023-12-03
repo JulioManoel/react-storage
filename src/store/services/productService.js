@@ -44,7 +44,7 @@ export const productService = {
       this.products = this.products.filter(category => category.id !== payload.id)
       await productController.delete(payload, currentUser)
     } catch (e) {
-
+      return console.log(e)
     }
   }
 }
