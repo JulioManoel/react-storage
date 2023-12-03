@@ -1,9 +1,9 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
-import TextButton from '../components/atoms/TextButton'
-import InputIcon from '../components/atoms/InputIcon'
-import ButtonSubmit from '../components/atoms/ButtonSubmit'
+import TextButton from '../../components/atoms/TextButton'
+import InputIcon from '../../components/atoms/InputIcon'
+import ButtonSubmit from '../../components/atoms/ButtonSubmit'
 import { useEffect, useState } from 'react'
-import { store } from '../store'
+import { store } from '../../store'
 
 export default RegisterScreen = ({ navigation }) => {
   const [name, setName] = useState('')
@@ -43,14 +43,14 @@ export default RegisterScreen = ({ navigation }) => {
     setLoading(true)
 
     if (password === confirm) await store.user.create({ name, email, password })
-    if (store.user.currentUser) navigation.navigate('HomeTabs')
+    if (store.user.currentUser) navigation.navigate('Loading')
 
     setLoading(false)
   }
 
   return (
     <View style={styles.container}>
-      <Image source={require("../assets/images/register.png")} />
+      <Image source={require("../../assets/images/register.png")} />
       <Text style={styles.titulo}>Sign Up</Text>
 
       <View style={styles.form} onPress={onSubmit}>

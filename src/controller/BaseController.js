@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore'
+import { addDoc, collection, deleteDoc, doc, getDoc, setDoc, updateDoc, getDocs } from 'firebase/firestore'
 import { db } from '../firebase/config'
 
 export default class BaseController {
@@ -7,10 +7,9 @@ export default class BaseController {
     return res.data()
   }
 
-  async getDocument(document, collection, data = true) {
+  async getDocument(document, collection) {
     const docSnap = await getDoc(doc(db, document, collection))
-    if (data === true) return docSnap.data()
-    return docSnap
+    return docSnap.data()
   }
 
   async addDocument(document, payload) {
@@ -27,5 +26,9 @@ export default class BaseController {
 
   async updateDocument(document, collection, payload) {
     await updateDoc(doc(db, document, collection), payload)
+  }
+
+  async deleteDocument(document, collection) {
+    await deleteDoc(doc(db, document, collection))
   }
 }

@@ -1,8 +1,8 @@
 import { StyleSheet, Switch, Text, TextInput, View } from 'react-native'
-import Avatar from '../components/atoms/Avatar'
-import FloatButton from "../components/atoms/FloatButton"
+import Avatar from '../../components/atoms/Avatar'
+import FloatButton from "../../components/atoms/FloatButton"
 import { useState } from 'react'
-import { store } from '../store'
+import { store } from '../../store'
 import { useNavigation } from '@react-navigation/native'
 
 export default CategoryScreen = ({ route }) => {
@@ -27,7 +27,7 @@ export default CategoryScreen = ({ route }) => {
   return (
     <View style={styles.container}>
 
-      <Avatar url={null} character="G" size={125} borderRadius={15} />
+      <Avatar character={name[0]} size={125} borderRadius={15} />
 
       <View style={styles.form}>
         <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={text => setName(text)} />

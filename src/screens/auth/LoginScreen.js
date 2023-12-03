@@ -1,9 +1,9 @@
-import { Image, StyleSheet, Text, TextInput, View } from 'react-native'
-import TextButton from '../components/atoms/TextButton'
-import InputIcon from '../components/atoms/InputIcon'
-import ButtonSubmit from '../components/atoms/ButtonSubmit'
+import { Image, StyleSheet, Text, View } from 'react-native'
+import TextButton from '../../components/atoms/TextButton'
+import InputIcon from '../../components/atoms/InputIcon'
+import ButtonSubmit from '../../components/atoms/ButtonSubmit'
 import { useEffect, useState } from 'react'
-import { store } from '../store'
+import { store } from '../../store'
 
 export default LoginScree = ({ navigation }) => {
   const [email, setEmail] = useState('')
@@ -32,18 +32,14 @@ export default LoginScree = ({ navigation }) => {
     setLoading(true)
 
     await store.user.login({ email, password })
-    if (store.user.currentUser) navigation.navigate('HomeTabs')
+    if (store.user.currentUser) navigation.navigate('Loading')
 
     setLoading(false)
   }
 
-  const github = require('../assets/images/github.png')
-  const google = require('../assets/images/google.png')
-  const facebook = require('../assets/images/facebook.png')
-
   return (
     <View style={styles.container}>
-      <Image source={require("../assets/images/login.png")} />
+      <Image source={require("../../assets/images/login.png")} />
       <Text style={styles.titulo}>Login</Text>
 
       <View style={styles.form}>
@@ -55,15 +51,6 @@ export default LoginScree = ({ navigation }) => {
       </View>
 
       <ButtonSubmit title="Login" onPress={onSubmit} loading={loading} />
-
-      <Text style={styles.loginWith}>Or, login with...</Text>
-
-      {/* <View style={styles.gridSocial}>
-        <SocialButton source={facebook} />
-        <SocialButton source={google} />
-        <SocialButton source={github} />
-      </View> */}
-
       <TextButton onPress={() => navigation.navigate('Register')} text="Don't have an account?" button="Sing Up" />
     </View>
   )

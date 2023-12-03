@@ -3,7 +3,7 @@ import Icon from '@expo/vector-icons/FontAwesome'
 import ButtonNew from '../components/atoms/ButtonNew'
 
 import HomeScreen from '../screens/HomeScreen'
-import ManagerScreen from '../screens/ManagerScreen'
+import ManagerScreen from '../screens/manager/ManagerScreen'
 import SettingScreen from '../screens/SettingScreen'
 import ManageStack from './ManageStack'
 
