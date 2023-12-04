@@ -31,7 +31,6 @@ export default PopularProducts = () => {
   return (
     <View>
         <View style={styles.container}>
-            <Text style={styles.containerText}>Popular Products</Text>
             <FlatList
             data={data}
             keyExtractor={item => item.productId}
@@ -46,8 +45,12 @@ export default PopularProducts = () => {
                         </View>
                     <Text style={styles.productPrice}>{item.productPrice}</Text>
                 </View>
-            </TouchableOpacity>}
-            />
+            </TouchableOpacity>}/>
+        </View>
+        <View style={styles.checkoutButtonContainer}>
+            <TouchableOpacity style={styles.checkoutButton}>
+                <Text style={styles.checkoutButtonText}>Finalizar</Text>
+            </TouchableOpacity>
         </View>
     </View>
   )
@@ -55,10 +58,9 @@ export default PopularProducts = () => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#FFFFFF',
-        margin: 24,
         borderRadius: 12,
-        marginTop: -90,
+        height: '80%',
+        marginTop: 40,
     },
 
     containerText: {
@@ -97,5 +99,25 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: '400',
         marginRight: 10,
+    },
+
+    checkoutButtonContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#5000FA',
+        marginLeft: 100,
+        marginRight: 100,
+        borderRadius: 25,
+    },
+
+    checkoutButton: {
+        justifyContent: 'center',
+        height: 50,
+    },
+
+    checkoutButtonText: {
+        fontSize: 20,
+        fontWeight: '500',
+        color: '#FFFFFF'
     },
 })

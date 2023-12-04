@@ -6,6 +6,7 @@ import HomeScreen from '../screens/HomeScreen'
 import ManagerScreen from '../screens/manager/ManagerScreen'
 import SettingScreen from '../screens/SettingScreen'
 import ManageStack from './ManageStack'
+import SaleStack from '../routes/SaleStack'
 
 const Tab = createBottomTabNavigator()
 
@@ -43,7 +44,7 @@ export default HomeTabs = () => {
 
       <Tab.Screen
         name="Sell"
-        component={ManagerScreen}
+        component={SaleStack}
         options={{
           headerShown: false,
           tabBarIcon: ({ focused, size }) => <ButtonNew size={size} focused={focused} />,

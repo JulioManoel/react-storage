@@ -5,11 +5,11 @@ import Transactions from '../components/molecules/Transactions'
 
 export default HomeScreen = () => {
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <UserHeader style={styles.userHeader} />
       <PopularProducts/>
       <Transactions/>
-    </ScrollView>
+    </View>
   )
 }
 

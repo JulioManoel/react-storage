@@ -5,22 +5,28 @@ import Avatar from '../atoms/Avatar'
 
 const data = [
     {
+        transactionId: '1',
         transactionType: 'Product Buy',
         transactionPaymenntMethod: 'Wallet',
         transactionValue: '-$75',
 
     },
     {
+        transactionId: '2',
         transactionType: 'Product Buy',
         transactionPaymenntMethod: 'Wallet',
         transactionValue: '-$75',
 
-    },    {
+    },    
+    {
+        transactionId: '3',
         transactionType: 'Product Buy',
         transactionPaymenntMethod: 'Wallet',
         transactionValue: '-$75',
 
-    },    {
+    },   
+    {
+        transactionId: '4',
         transactionType: 'Product Buy',
         transactionPaymenntMethod: 'Wallet',
         transactionValue: '-$75',
@@ -33,11 +39,11 @@ export default Transactions = () => {
 
   return (
     <View>
-        <ScrollView style={styles.container}>
+        <View style={styles.container}>
             <Text style={styles.containerText}>Transactions</Text>
             <FlatList
             data={data}
-            keyExtractor={item => item.productId}
+            keyExtractor={item => item.transactionId}
             showsHorizontalScrollIndicator={false}
             renderItem={({item}) => 
             <TouchableOpacity>
@@ -51,7 +57,7 @@ export default Transactions = () => {
                 </View>
             </TouchableOpacity>}
             />
-        </ScrollView>
+        </View>
     </View>
   )
 }
