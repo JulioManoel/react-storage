@@ -1,11 +1,15 @@
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, ScrollView } from 'react-native'
 import UserHeader from '../components/molecules/UserHeader'
+import PopularProducts from '../components/molecules/PopularProducts'
+import Transactions from '../components/molecules/Transactions'
 
 export default HomeScreen = () => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <UserHeader style={styles.userHeader} />
-    </View>
+      <PopularProducts/>
+      <Transactions/>
+    </ScrollView>
   )
 }
 
