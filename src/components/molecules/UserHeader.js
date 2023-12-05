@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { store } from '../../store'
 import Avatar from '../atoms/Avatar'
+import { useNavigation } from '@react-navigation/native'
 
 export default UserHeader = () => {
-  const [user, setUser] = useState(store.user.currentUser)
+  const navigation = useNavigation()
+
+  const [user] = useState(store.user.currentUser)
 
   return (
     <View>
@@ -14,7 +17,9 @@ export default UserHeader = () => {
           <Text style={[styles.text, styles.name]}>{user.displayName}</Text>
         </View>
 
-        <Avatar url={user.photoURL} character={user.displayName[0]} />
+        <TouchableOpacity onPress={() => navigation.navigate('Setting')}>
+          <Avatar url={user.photoURL} character={user.displayName[0]} />
+        </TouchableOpacity>
       </View>
     </View>
   )

@@ -3,10 +3,9 @@ import Icon from '@expo/vector-icons/FontAwesome'
 import ButtonNew from '../components/atoms/ButtonNew'
 
 import HomeScreen from '../screens/HomeScreen'
-import ManagerScreen from '../screens/manager/ManagerScreen'
-import SettingScreen from '../screens/SettingScreen'
 import ManageStack from './ManageStack'
 import SaleStack from '../routes/SaleStack'
+import SettingScreen from '../screens/SettingScreen'
 
 const Tab = createBottomTabNavigator()
 
@@ -33,6 +32,16 @@ export default HomeTabs = () => {
       />
 
       <Tab.Screen
+        name="Sell"
+        component={SaleStack}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused, size }) => <ButtonNew size={size} focused={focused} />,
+          tabBarLabel: '',
+        }}
+      />
+
+      <Tab.Screen
         name="ManageStack"
         component={ManageStack}
         options={{
@@ -43,28 +52,10 @@ export default HomeTabs = () => {
       />
 
       <Tab.Screen
-        name="Sell"
-        component={SaleStack}
-        options={{
-          headerShown: false,
-          tabBarIcon: ({ focused, size }) => <ButtonNew size={size} focused={focused} />,
-          tabBarLabel: '',
-        }}
-      />
-      <Tab.Screen
-        name="Users"
-        component={HomeScreen}
-        options={{
-          headerShown: false,
-        }}
-      />
-
-      <Tab.Screen
-        name="Settings"
+        name="Setting"
         component={SettingScreen}
         options={{
-          headerShown: false,
-          tabBarIcon: ({ size, color }) => (<Icon name="gear" color={color} size={size} />)
+          tabBarButton: () => null
         }}
       />
     </Tab.Navigator>

@@ -26,7 +26,6 @@ const data = [
 
 export default Checkout = () => {
   const [user, setUser] = useState(store.user.currentUser)
-  
 
   return (
     <View>
