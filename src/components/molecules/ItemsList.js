@@ -1,69 +1,49 @@
 import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { Image, StyleSheet, Text, View, FlatList, TouchableOpacity, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native'
 import { store } from '../../store'
 import Avatar from '../atoms/Avatar'
 
-const data = [
-    {
-        categoryId: 1,
-        categoryName: 'Camiseta 01'
-    },
-    {
-        categoryId: 2,
-        categoryName: 'Camiseta 02'
-    },
-    {
-        categoryId: 3,
-        categoryName: 'Camiseta 03'
-    },    {
-        categoryId: 4,
-        categoryName: 'Camiseta 04'
-    },
-]
+export default ItemsList = ({ category }) => {
+    const navigation = useNavigation()
 
-export default ItemsList = () => {
-  const [user, setUser] = useState(store.user.currentUser)
-  const navigation = useNavigation()
+    const [list] = useState(store.product.products.filter(product => product.category === category.id))
 
-  return (
-    <View>
+    const add = product => {
+        store.sale.add(product)
+    }
+
+    return (
         <View style={styles.container}>
             <FlatList
-            data={data}
-            keyExtractor={item => item.categoryId}
-            showsHorizontalScrollIndicator={false}
-            numColumns={3}
-            renderItem={({item}) => 
-            <TouchableOpacity onPress={() => navigation.navigate('CategoryItemsList')}>
-                <View style={styles.categoryContainer}>                        
-                    <Text style={styles.categoryName}>{item.categoryName}</Text>
-                </View>
-            </TouchableOpacity>}
+                data={list}
+                keyExtractor={item => item.id}
+                showsHorizontalScrollIndicator={false}
+                numColumns={3}
+                renderItem={({ item }) =>
+                    <TouchableOpacity style={styles.categoryContainer} onPress={() => add(item)}>
+                        <Avatar character={item.name[0]} size={100} borderRadius={10} />
+                        <Text style={styles.categoryName}>{item.name}</Text>
+                    </TouchableOpacity>
+                }
             />
         </View>
-    </View>
-  )
+    )
 }
 
 const styles = StyleSheet.create({
     container: {
-        display: 'flex',
-        width: '100%',
-        height: '100%'
+        flex: 1,
     },
 
     categoryContainer: {
-        backgroundColor: '#D9D9D9',
         alignItems: 'center',
-        borderRadius: 12,
         width: 100,
-        height: 100,
-        margin: 20,
+        height: 125,
+        margin: 19,
     },
 
     categoryName: {
         marginTop: 'auto',
-        marginBottom: -25,
     }
 })

@@ -1,4 +1,4 @@
-import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import { ActivityIndicator, StyleSheet, TouchableOpacity, View } from "react-native"
 import Icon from '@expo/vector-icons/FontAwesome'
 
 export default FloatButton = ({ icon, backgroundColor, loading = false, onPress = () => {} }) => {
